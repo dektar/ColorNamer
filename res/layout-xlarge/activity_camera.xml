@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/camera_activity_layout"
+    tools:context=".CameraActivity" >
+
+    <FrameLayout
+	    android:id="@+id/camera_preview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" />
+    
+    <LinearLayout 
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:id="@+id/camera_activity_center"
+        />
+    
+    <LinearLayout
+            android:id="@+id/results_holder_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/camera_result2_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="layout-large"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/camera_result1_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:padding="5dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="6dp" />
+            
+            <Button
+		        android:id="@+id/play_pause_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:alpha="10"
+				android:text=" pause "
+				style="?android:attr/borderlessButtonStyle"
+		        android:drawableLeft="@drawable/av_pause_over_video" />
+            
+        </LinearLayout>
+
+</RelativeLayout>

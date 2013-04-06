@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/camera_activity_layout"
+    tools:context=".CameraActivity" >
+
+    <FrameLayout
+	    android:id="@+id/camera_preview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" />
+    
+    <LinearLayout 
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:id="@+id/camera_activity_center"
+        />
+    
+    <LinearLayout
+            android:id="@+id/results_holder_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/camera_result2_textview"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:tag="layout"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:textAlignment="center"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/camera_result1_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:gravity="center"                
+                android:textSize="16sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp" />
+            
+            <Button
+		        android:id="@+id/play_pause_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:alpha="10"
+				android:text=" pause "
+				style="?android:attr/borderlessButtonStyle"
+		        android:drawableLeft="@drawable/av_pause_over_video" />
+            
+        </LinearLayout>
+
+</RelativeLayout>

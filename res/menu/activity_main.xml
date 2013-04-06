@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group
+        android:id="@+id/menu_group"
+        >
+    <item
+        android:id="@+id/menu_camera"
+        android:title="@string/menu_camera"
+        android:showAsAction="always|withText"
+        android:icon="@drawable/device_access_camera"/>
+    <item
+        android:id="@+id/menu_search"
+        android:title="@string/menu_search"
+        android:showAsAction="always|withText" 
+        android:icon="@drawable/action_search"/>
+    <item
+        android:id="@+id/menu_share"
+        android:title="@string/menu_share"
+        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/social_share" />
+    </group>
+    <item
+        android:id="@+id/menu_wallpaper"
+        android:title="@string/menu_wallpaper"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/menu_info"
+        android:title="@string/menu_info"
+        android:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_help"
+        android:showAsAction="never"
+        android:title="@string/menu_help"/>
+
+</menu>
