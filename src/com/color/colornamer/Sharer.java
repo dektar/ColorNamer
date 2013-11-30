@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
@@ -74,4 +75,15 @@ public class Sharer {
     	context.unbindService(scanner);
 
 	}
+	
+	// creates a bitmap of the current color
+    public Bitmap createBitmap(String colorString) {
+    	int size = 512;
+		int[] color = new int[size*size];
+		int colorValue = Color.parseColor(colorString);
+		for (int i = 0; i < size*size; i++) {
+			color[i] = colorValue;
+		}
+		return Bitmap.createBitmap(color, size, size, Bitmap.Config.ARGB_8888);
+    }
 }

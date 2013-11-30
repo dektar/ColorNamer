@@ -101,6 +101,7 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
     	return isFrontCamera;
     }
   
+    /* TODO: fix the bug with the null pointer exception */
     public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {  
         // Now that the size is known, set up the camera parameters and begin  
         // the preview.  
@@ -112,9 +113,11 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
  	        List<String> focusModes = parameters.getSupportedFocusModes();
  	        if (focusModes != null) {
 	 	        if (focusModes.contains(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE))
-	 	           parameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+	 	        	parameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
 	 	        else if (focusModes.contains(Parameters.FOCUS_MODE_CONTINUOUS_VIDEO))
-	 	    	   parameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+	 	        	parameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+	 	        else if (focusModes.contains(Parameters.FOCUS_MODE_AUTO))
+	 	        	parameters.setFocusMode(Parameters.FOCUS_MODE_AUTO);
  	        }
     		
     		//have to get previewSizes because not all devices support arbitrary previews
@@ -139,14 +142,18 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
 	               }
 	        	}
 	        }
-	        previewSize = best; 
+	        
+	        // make sure something is picked.  previewSizes is guarenteed to have at least one thing.
+	        if (best != null) {
+	        	previewSize = best; 
+	        } else {
+	        	previewSize = previewSizes.get(0);
+	        }
+	           
 	        parameters.setPreviewSize(previewSize.width, previewSize.height);
-	        
             pixels = new int[previewSize.width * previewSize.height];  
-	        
 	        mCamera.setParameters(parameters);
 	        
-    		
     	    //sets the camera callback to be the one defined in this class  
             mCamera.setPreviewCallbackWithBuffer(this);//setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);  
 	        bufferSize = previewSize.width*previewSize.height*ImageFormat.getBitsPerPixel(parameters.getPreviewFormat())/8;

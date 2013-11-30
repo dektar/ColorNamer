@@ -29,15 +29,15 @@ import android.widget.Toast;
 
 
 /*
- * TODO: make a new menu with dark icons for matt's phone
  * TODO: saving colors to lists
- * TODO: share, set wallpaper options from colordialog
- * 2.2: set color as wallpaper, share to google+ and google drive type things
+ * TODO: share from colordialog
+ * 2.2: set color as wallpaper (including from colordialog), share to google+ and google drive type things
  * 2.0: Camera input & camera sharing
  * 1.2: share colors, bug fix formatting for old devices
  * 1.1: instant search, full sized color, minor bug fixes with the keyboard, formatting for small devices
  */
-public class MainActivity extends MenuActivity implements OnTouchListener, OnSeekBarChangeListener, EnterColorDialog.EnterColorListener, OnItemClickListener {
+public class MainActivity extends MenuActivity implements OnTouchListener, OnSeekBarChangeListener, EnterColorDialog.EnterColorListener, 
+														  OnItemClickListener, ColorViewDialog.ColorViewDialogListener {
 	public final static String EXTRA_MESSAGE = "com.example.colorpicker.MESSAGE";
 	public final static String EXTRA_COLOR_ENTERED = "com.example.colorpicker.COLOR_ENTERED";
 	public final static String EXTRA_MESSAGE_RESULT = "com.example.colorpicker.MESSAGE_RESULT";
@@ -79,7 +79,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
 			public void onClick(View arg0) {
 				if (hasColor) {
 					ColorViewDialog dialog = new ColorViewDialog();
-					dialog.setColor(Color.parseColor(currentNamedColor), cdata.getColorName(currentNamedColor) + " (" + currentNamedColor  + ")");
+					dialog.setColor(currentNamedColor, cdata.getColorName(currentNamedColor) + " (" + currentNamedColor  + ")");
 					dialog.show(getSupportFragmentManager(), "color_view");
 				}
 			}
@@ -89,7 +89,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
 			public void onClick(View v) {
 				if (hasColor) {
 					ColorViewDialog dialog = new ColorViewDialog();
-					dialog.setColor(Color.parseColor(currentColor), "You picked " + currentColor);
+					dialog.setColor(currentColor, "You picked " + currentColor);
 					dialog.show(getSupportFragmentManager(), "color_view");
 				}
 			}  	
@@ -272,7 +272,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
     @Override
     protected void share() {
     	if (this.hasColor) {
-    		Bitmap bitmap = createBitmap();
+    		Bitmap bitmap = sharer.createBitmap(currentNamedColor);
     		String name = cdata.getColorName(currentNamedColor);
     		sharer.Share(bitmap, name, currentNamedColor);
     	} else {
@@ -286,7 +286,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
     @Override
     protected void wallpaper() {
     	if (this.hasColor) {
-    		Bitmap bitmap = createBitmap();
+    		Bitmap bitmap = sharer.createBitmap(currentNamedColor);
     		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
     		try {
 				wm.setBitmap(bitmap);
@@ -302,15 +302,21 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
     		toast.show();
     	}
     }
-    
-    // creates a bitmap of the current color
-    private Bitmap createBitmap() {
-    	int size = 512;
-		int[] color = new int[size*size];
-		int colorValue = Color.parseColor(currentNamedColor);
-		for (int i = 0; i < size*size; i++) {
-			color[i] = colorValue;
+
+	@Override
+	public void onColorDialogPositiveClick(DialogFragment dialog, String color) {
+		Bitmap bitmap = sharer.createBitmap(color);
+		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
+		try {
+			wm.setBitmap(bitmap);
+    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		toast.setGravity(Gravity.CENTER, 0, 0);
+    		toast.show();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		return Bitmap.createBitmap(color, size, size, Bitmap.Config.ARGB_8888);
-    }
+	}
+    
+    
+ 
 }

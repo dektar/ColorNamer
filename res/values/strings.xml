@@ -43,10 +43,11 @@
 	<string name="button_hex">Enter Hex</string>
     <string name="cancel_hex">Cancel</string>
     <string name="cancel_color">Close</string>
+    <string name="wallpaper_color">Set color as wallpaper</string>
     <string name="enter_hex">Submit</string>
     <string name="message_hex">e.g. #32fdcc or f8901e</string>
     <string name="title_hex">Enter a hex color</string>
-    <string name="share_title">Share the named color to...</string>
+    <string name="share_title">Share the named color to:</string>
     <string name="menu_share">Share</string>
     
 </resources>

@@ -1,15 +1,19 @@
 package com.color.colornamer;
 
+import java.io.IOException;
+
 import com.color.colornamer.Preview.PreviewListener;
 
+import android.app.WallpaperManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.DialogFragment;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,10 +23,11 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 //class to hold the camera preview & manage the layouts & callbacks associated with the camera fragment
-public class CameraActivity extends MenuActivity implements PreviewListener, OnTouchListener {
+public class CameraActivity extends MenuActivity implements PreviewListener, OnTouchListener, ColorViewDialog.ColorViewDialogListener {
 	
 	private Menu menu;
 	private Preview mPreview;
@@ -53,7 +58,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		super.onCreate(savedInstanceState);
 		
 		// The camera activity is the main activity.  So, we need to default to the chooser activity if the camera doesn't exist.
-		if (!this.hasCamera) {
+		if (!this.hasCamera || this.sdk < 9) {
 			Intent intent = new Intent(this, MainActivity.class);
 			startActivity(intent);
 			this.finish();
@@ -76,7 +81,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 					pause();
 					dialog.setDestroyCallback(CameraActivity.this);
 				}
-				dialog.setColor(Color.parseColor(currentColor), "You chose " + currentColor);
+				dialog.setColor(currentColor, "You chose " + currentColor);
 				dialog.show(getSupportFragmentManager(), "color_view");
 			}  	
         });
@@ -88,7 +93,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 					pause();
 					dialog.setDestroyCallback(CameraActivity.this);
 				}
-				dialog.setColor(Color.parseColor(currentNamedColor), cdata.getColorName(currentNamedColor) + " (" + currentNamedColor  + ")");
+				dialog.setColor(currentNamedColor, cdata.getColorName(currentNamedColor) + " (" + currentNamedColor  + ")");
 				dialog.show(getSupportFragmentManager(), "color_view");
 			}
         });
@@ -323,7 +328,34 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		return false;
 	}
 
-	
+	//set the wallpaper to be the named color
+    @Override
+    protected void wallpaper() {
+   		Bitmap bitmap = sharer.createBitmap(currentNamedColor);
+   		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
+   		try {
+			wm.setBitmap(bitmap);
+    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		toast.setGravity(Gravity.CENTER, 0, 0);
+    		toast.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    @Override
+	public void onColorDialogPositiveClick(DialogFragment dialog, String color) {
+		Bitmap bitmap = sharer.createBitmap(color);
+		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
+		try {
+			wm.setBitmap(bitmap);
+    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		toast.setGravity(Gravity.CENTER, 0, 0);
+    		toast.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
     
 
 }

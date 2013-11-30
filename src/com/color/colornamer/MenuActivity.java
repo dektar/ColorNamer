@@ -26,7 +26,7 @@ public class MenuActivity extends FragmentActivity {
 		//for hiding the camera option for devices w/ no camera
 		//feature_camera_any is api level 17
 		PackageManager manager = getPackageManager();
-		if (manager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY) | manager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) hasCamera = true;
+		if (manager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY) || manager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) hasCamera = true;
 		
 		sharer = new Sharer(this);
 

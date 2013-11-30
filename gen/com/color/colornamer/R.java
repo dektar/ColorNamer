@@ -38,15 +38,15 @@ public final class R {
         public static final int hex_alert_content=0x7f080019;
         public static final int info_text=0x7f080008;
         public static final int main_layout=0x7f080009;
-        public static final int menu_camera=0x7f080024;
+        public static final int menu_camera=0x7f080025;
         public static final int menu_chooser=0x7f080020;
-        public static final int menu_group=0x7f080023;
-        public static final int menu_help=0x7f080022;
-        public static final int menu_info=0x7f080021;
-        public static final int menu_search=0x7f080025;
+        public static final int menu_group=0x7f080024;
+        public static final int menu_help=0x7f080023;
+        public static final int menu_info=0x7f080022;
+        public static final int menu_search=0x7f080026;
         public static final int menu_settings=0x7f080027;
         public static final int menu_share=0x7f08001f;
-        public static final int menu_wallpaper=0x7f080026;
+        public static final int menu_wallpaper=0x7f080021;
         public static final int play_pause_button=0x7f080006;
         public static final int randomButton=0x7f080011;
         public static final int result1_textview=0x7f08000d;
@@ -94,7 +94,7 @@ public final class R {
         public static final int color_picker_slider_text_short=0x7f050013;
         public static final int edit_search=0x7f05000f;
         public static final int empty_result_string=0x7f050011;
-        public static final int enter_hex=0x7f050018;
+        public static final int enter_hex=0x7f050019;
         public static final int help_text=0x7f05000b;
         public static final int info_text=0x7f05000a;
         public static final int menu_camera=0x7f050009;
@@ -103,16 +103,17 @@ public final class R {
         public static final int menu_info=0x7f050004;
         public static final int menu_search=0x7f05000d;
         public static final int menu_settings=0x7f050002;
-        public static final int menu_share=0x7f05001c;
+        public static final int menu_share=0x7f05001d;
         public static final int menu_wallpaper=0x7f050003;
-        public static final int message_hex=0x7f050019;
-        public static final int share_title=0x7f05001b;
+        public static final int message_hex=0x7f05001a;
+        public static final int share_title=0x7f05001c;
         public static final int title_activity_help=0x7f05000c;
         public static final int title_activity_info=0x7f050008;
         public static final int title_activity_main=0x7f050001;
         public static final int title_activity_menu=0x7f050007;
         public static final int title_activity_search=0x7f05000e;
-        public static final int title_hex=0x7f05001a;
+        public static final int title_hex=0x7f05001b;
+        public static final int wallpaper_color=0x7f050018;
     }
     public static final class style {
         /** 
