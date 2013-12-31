@@ -11,10 +11,6 @@
         android:icon="@drawable/color_picker"
         android:showAsAction="ifRoom|withText" />
     <item
-        android:id="@+id/menu_flash"
-        android:title="@string/menu_flash"
-        android:showAsAction="never" />
-    <item
         android:id="@+id/menu_wallpaper"
         android:title="@string/menu_wallpaper"
         android:showAsAction="never" />
