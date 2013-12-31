@@ -13,7 +13,8 @@
     <string name="menu_camera">Camera</string>
     <string name="info_text">Color Namer gives names to colors, letting you explore the named colorspace.  Names are based on the results of the <a href="http://blog.xkcd.com/2010/05/03/color-survey-results/">XKCD color survey</a>.  The most similar color from the survey results is displayed next to the color you picked.\n\n        
         Color names were calculated from survey data by Randall Monroe, who writes the webcomic <a href="http://www.xkcd.com">XKCD</a>.  He writes on his blog:\n\n
-        \"The RGB value for a name is based on the location in the RGB color space where there was the highest frequency of responses choosing that name.  This was tricky to calculate.  I tried simple geometric means (conceptually flawed), a brute force survey of all potential center points (too slow), and fitting kernel density functions (math is hard). In the end, I used the average of a bunch of runs of a stochastic hillclimbing algorithm.  For mostly boring notes on my data handling for this list, see the comments at the bottom of the xkcd.com/color/rgb page.\"\n\n		\n\n<b>About this app</b>
+        \"The RGB value for a name is based on the location in the RGB color space where there was the highest frequency of responses choosing that name.  This was tricky to calculate.  I tried simple geometric means (conceptually flawed), a brute force survey of all potential center points (too slow), and fitting kernel density functions (math is hard). In the end, I used the average of a bunch of runs of a stochastic hillclimbing algorithm.  For mostly boring notes on my data handling for this list, see the comments at the bottom of the xkcd.com/color/rgb page.\"\n\n
+		\n\n<b>About this app</b>
         \nVersion 2.2, March 2013      
 	    \nThis app was developed by Katie Dektar (<a href="http://www.dektar.com">dektar.com</a>). Please give me feedback <a href="market://details?id=com.color.colornamer">in the app store</a>, or email me directly at <a href="mailto:katie.dektar@gmail.com">katie.dektar@gmail.com</a>
 	    \nThe color name data was taken from the <a href="http://www.xkcd.com">xkcd</a> color survey.
@@ -49,5 +50,6 @@
     <string name="title_hex">Enter a hex color</string>
     <string name="share_title">Share the named color to:</string>
     <string name="menu_share">Share</string>
+    <string name="menu_flash">Flash</string>
     
 </resources>
