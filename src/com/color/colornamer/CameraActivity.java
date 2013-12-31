@@ -135,14 +135,16 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 	
 	
 	@Override
-    protected void flash(){
-        if(getBaseContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
+    	protected void flash(){
+        	if(getBaseContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
 
-            mPreview.flash();
+            		button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.av_pause_over_video, 0, 0, 0);
+            		mPreview.resetBuffer();
+            		mPreview.flash();
 
-        }
+		}
         //Toast massage when no Flash support on Handy
-    }
+    	}
 	
 	
 	
@@ -166,6 +168,11 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_camera, menu);
+
+        if (getBaseContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            menu.add(Menu.NONE, R.string.menu_flash, 0,getString(R.string.menu_flash));
+        }
+
         this.menu = menu;
         return true;
     }
