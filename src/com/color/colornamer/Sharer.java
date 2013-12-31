@@ -71,8 +71,9 @@ public class Sharer {
     	}
     	dir.delete();
     	//Tells the system to refresh the available files - this removes the colornamer folder from the gallery
-    	context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory())));
-    	context.unbindService(scanner);
+    	
+    	//context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory())));
+    	//context.unbindService(scanner);
 
 	}
 	
