@@ -132,6 +132,19 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		centerView.invalidate();
 	}
 	
+	
+	@Override
+    protected void flash(){
+        if(getBaseContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
+
+            mPreview.flash();
+
+        }
+        //Toast massage when no Flash support on Handy
+    }
+	
+	
+	
 	@Override
 	public void onResume() {
 		super.onResume();
