@@ -15,6 +15,10 @@
         android:title="@string/menu_wallpaper"
         android:showAsAction="never" />
     <item
+        android:id="@+id/menu_flash"
+        android:title="@string/menu_flash"
+        android:showAsAction="never" />
+    <item
         android:id="@+id/menu_info"
         android:title="@string/menu_info"
         android:showAsAction="never"/>
