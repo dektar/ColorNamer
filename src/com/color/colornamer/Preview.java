@@ -97,12 +97,17 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
             if(!lightOn){
                 lightOn = true;
                 mCamera.stopPreview();
+                mCamera.setPreviewCallbackWithBuffer(this);//setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);
+
                 p.setFlashMode(Parameters.FLASH_MODE_TORCH);
                 mCamera.setParameters(p);
                 mCamera.startPreview();
             }else{
                 lightOn = false;
                 mCamera.stopPreview();
+		mCamera.setPreviewCallbackWithBuffer(this);//setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);
+
+
                 p.setFlashMode(Parameters.FLASH_MODE_OFF);
                 mCamera.setParameters(p);
                 mCamera.startPreview();
@@ -193,12 +198,18 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
     public void pause(boolean isPaused) {
     	this.isPaused = isPaused;
     	if (isPaused) {
+            parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
+            mCamera.setParameters(parameters);
     		mCamera.stopPreview();
     	} else {
     		if (mCamera != null) {
 	    		mCamera.setPreviewCallbackWithBuffer(this);//setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);
-	    		mCamera.setParameters(parameters);
-	    		mCamera.startPreview();
+
+                if(lightOn)
+                    parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
+
+                mCamera.setParameters(parameters);
+                mCamera.startPreview();
     		}
     	}
     }
