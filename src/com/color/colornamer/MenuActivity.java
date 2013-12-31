@@ -92,7 +92,7 @@ public class MenuActivity extends FragmentActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         		startActivity(intent);
         		return true;
-	    case R.id.menu_flash:
+	    case R.string.menu_flash:
                  flash();
                  return true;
             default:
