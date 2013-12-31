@@ -6,6 +6,7 @@ import com.color.colornamer.Preview.PreviewListener;
 
 import android.app.WallpaperManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
