@@ -32,6 +32,7 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
     byte[] buffer;
     int bufferSize;
     private boolean isFrontCamera = false;
+    boolean lightOn = false;
     
     private boolean isPaused = false;
           
@@ -85,7 +86,30 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
             mCamera.release();  
             mCamera = null;  
         }  
-    }  
+    } 
+    
+    public void flash() {
+
+        if(getContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
+            Parameters p = mCamera.getParameters();
+
+            if(!lightOn){
+                lightOn = true;
+                mCamera.stopPreview();
+                p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+                mCamera.setParameters(p);
+                mCamera.startPreview();
+            }else{
+                lightOn = false;
+                mCamera.stopPreview();
+                p.setFlashMode(Parameters.FLASH_MODE_OFF);
+                mCamera.setParameters(p);
+                mCamera.startPreview();
+            }
+
+        }
+    }
+    
   
     public void surfaceDestroyed(SurfaceHolder holder) {  
         // Surface will be destroyed when we return, so stop the preview.  
