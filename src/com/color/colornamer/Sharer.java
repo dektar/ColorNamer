@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Log;
 
 // this class controls sharing & file writing & cleanup.
 public class Sharer {
@@ -72,9 +73,16 @@ public class Sharer {
     	dir.delete();
     	scanner.disconnect();
     	//Tells the system to refresh the available files - this removes the colornamer folder from the gallery
-    	//Breaks android 4.4.x (Thanks CodeCheater@github)
-    	//context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory())));
-    	//context.unbindService(scanner);
+    	//(Thanks CodeCheater@github)
+
+    	MediaScannerConnection.scanFile(context,
+                new String[] { ""+Environment.getExternalStorageDirectory()}, null,
+                new MediaScannerConnection.OnScanCompletedListener() {
+                    public void onScanCompleted(String path, Uri uri) {
+                        Log.i("ExternalStorage", "Scanned " + path + ":");
+                        Log.i("ExternalStorage", "-> uri=" + uri);
+                    }
+                });
 
 	}
 	

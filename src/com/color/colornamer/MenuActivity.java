@@ -92,6 +92,9 @@ public class MenuActivity extends FragmentActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         		startActivity(intent);
         		return true;
+        	case R.id.menu_flash:
+                 flash();
+                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -103,6 +106,10 @@ public class MenuActivity extends FragmentActivity {
     
     protected void share() {
     	//empty
+    }
+    
+    protected void flash() {
+        //empty
     }
     
     protected void setMenuVisible() {

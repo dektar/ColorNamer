@@ -6,6 +6,7 @@ import com.color.colornamer.Preview.PreviewListener;
 
 import android.app.WallpaperManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -132,6 +133,18 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		centerView.invalidate();
 	}
 	
+	
+	@Override
+    	protected void flash(){
+        	if(getBaseContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
+            	button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.av_pause_over_video, 0, 0, 0);
+            	mPreview.resetBuffer();
+            	mPreview.flash();
+        	}
+    	}
+	
+	
+	
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -152,6 +165,9 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_camera, menu);
+        if (!mPreview.supportsFlash()) {
+            menu.removeItem(R.id.menu_flash);
+        }
         this.menu = menu;
         return true;
     }
