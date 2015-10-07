@@ -353,7 +353,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
    		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
    		try {
 			wm.setBitmap(bitmap);
-    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, R.string.wallpaper_set, Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
 		} catch (IOException e) {
@@ -367,7 +367,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
 		try {
 			wm.setBitmap(bitmap);
-    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, R.string.wallpaper_set, Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
 		} catch (IOException e) {

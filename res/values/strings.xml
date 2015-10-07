@@ -54,5 +54,6 @@
     <string name="menu_flash">Toggle Flash</string>
     <string name="camera_resume"> resume</string>
     <string name="camera_pause">  pause</string>
+    <string name="wallpaper_set">Wallpaper set</string>
     
 </resources>
