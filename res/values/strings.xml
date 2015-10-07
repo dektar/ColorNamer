@@ -17,7 +17,9 @@
 		\n\n<b>About this app</b>
         \nVersion 2.32, January 2014          
 	    \nThis app was developed by Katie Dektar (<a href="http://www.dektar.com">dektar.com</a>). Please give me feedback <a href="market://details?id=com.color.colornamer">in the app store</a>, or email me directly at <a href="mailto:katie.dektar@gmail.com">katie.dektar@gmail.com</a>
-		\nColor Namer is free and open-source on github at <a href="http://github.com/kaytdek/ColorNamer">github.com/kaytdek/ColorNamer</a>. Thanks to CheatCoder@github for adding the flash code.
+		\nColor Namer is free and open-source on github at <a href="http://github.com/kaytdek/ColorNamer">github.com/kaytdek/ColorNamer</a>.
+		\nThis app is released under <a href="https://www.gnu.org/licenses/gpl.html">GNU GPLv3 license</a>.
+		\nThanks to CheatCoder@github for adding the flash code.
 	    \nThe color name data was taken from the <a href="http://www.xkcd.com">xkcd</a> color survey.
 	</string>
     <string name="help_text"><b>Color Namer 2.32</b>
