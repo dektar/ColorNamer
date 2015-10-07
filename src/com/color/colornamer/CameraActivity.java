@@ -265,10 +265,10 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		mPreview.pause(isPaused);
 		if (isPaused) {
 			button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.av_play_over_video, 0, 0, 0);
-			button.setText(" resume");
+			button.setText(R.string.camera_resume);
 		} else {
 			button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.av_pause_over_video, 0, 0, 0);
-			button.setText("  pause");
+			button.setText(R.string.camera_pause);
 			mPreview.resetBuffer();
 		}
 	}
