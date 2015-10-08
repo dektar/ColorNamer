@@ -120,7 +120,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 			public void onClick(View arg0) {
 				pause();
 			}
-		});		
+		});
 	}
 	
 	@Override
@@ -263,10 +263,10 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		mPreview.pause(isPaused);
 		if (isPaused) {
 			button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.av_play_over_video, 0, 0, 0);
-			button.setText(" resume");
+			button.setText(R.string.camera_resume);
 		} else {
 			button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.av_pause_over_video, 0, 0, 0);
-			button.setText("  pause");
+			button.setText(R.string.camera_pause);
 			mPreview.resetBuffer();
 		}
 	}
@@ -351,7 +351,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
    		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
    		try {
 			wm.setBitmap(bitmap);
-    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, R.string.wallpaper_set, Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
 		} catch (IOException e) {
@@ -365,7 +365,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
 		try {
 			wm.setBitmap(bitmap);
-    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, R.string.wallpaper_set, Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
 		} catch (IOException e) {
