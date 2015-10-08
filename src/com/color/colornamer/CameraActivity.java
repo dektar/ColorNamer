@@ -20,7 +20,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -122,7 +121,6 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 				pause();
 			}
 		});
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); // disables display sleeping by default
 	}
 	
 	@Override
