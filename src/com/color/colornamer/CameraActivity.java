@@ -82,7 +82,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 					pause();
 					dialog.setDestroyCallback(CameraActivity.this);
 				}
-				dialog.setColor(currentColor, "You chose " + currentColor);
+				dialog.setColor(currentColor, getText(R.string.you_chose) + " " + currentColor);
 				dialog.show(getSupportFragmentManager(), "color_view");
 			}  	
         });
@@ -204,7 +204,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 		this.pausedDarkColor = isDarkColor;
 
 		colorView1.setBackgroundColor(color);
-		colorView1.setText("you chose " + currentColor);
+		colorView1.setText(getText(R.string.you_chose2) + " " + currentColor);
 		
 		colorView2.setBackgroundColor(Color.parseColor(currentNamedColor));
 		if (colorView2.getTag().equals("layout") || colorView2.getTag().equals("layout-small")) colorView2.setText(("" + cdata.getColorName(currentNamedColor) + "    " + "(" + currentNamedColor + ")"));

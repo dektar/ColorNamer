@@ -57,5 +57,7 @@
     <string name="camera_resume"> resume</string>
     <string name="camera_pause">  pause</string>
     <string name="wallpaper_set">Wallpaper set</string>
+    <string name="you_chose">You chose</string>
+    <string name="you_chose2">you chose</string>
     
 </resources>
