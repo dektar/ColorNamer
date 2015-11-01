@@ -297,7 +297,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
 				e.printStackTrace();
 			}
     	} else {
-    		Toast toast = Toast.makeText(this, getText(R.string.cant_share), Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, getText(R.string.cant_set), Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
     	}

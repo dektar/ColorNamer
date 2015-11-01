@@ -63,5 +63,6 @@
     <string name="not_a_color">that\'s not a color!</string>
     <string name="dont_be_silly">(don\'t be silly)</string>
     <string name="cant_share">Can\'t share - no color chosen</string>
+    <string name="cant_set">Can\'t set wallpaper - no color chosen</string>
     
 </resources>
