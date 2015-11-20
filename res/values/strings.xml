@@ -57,5 +57,12 @@
     <string name="camera_resume"> resume</string>
     <string name="camera_pause">  pause</string>
     <string name="wallpaper_set">Wallpaper set</string>
+    <string name="you_chose">You chose</string>
+    <string name="tap">Tap a color!</string>
+    <string name="you_picked">You picked</string>
+    <string name="not_a_color">that\'s not a color!</string>
+    <string name="dont_be_silly">(don\'t be silly)</string>
+    <string name="cant_share">Can\'t share - no color chosen</string>
+    <string name="cant_set">Can\'t set wallpaper - no color chosen</string>
     
 </resources>

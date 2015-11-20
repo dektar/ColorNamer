@@ -71,8 +71,8 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
         text2 = (TextView) findViewById(R.id.result2_textview);
         text2.setGravity(Gravity.CENTER_HORIZONTAL);
         //for different screen sizes
-		if (text2.getTag().equals("layout") || text2.getTag().equals("layout-small")) text2.setText("Tap a color!");
-		else text2.setText("Tap a color!\n");
+		if (text2.getTag().equals("layout") || text2.getTag().equals("layout-small")) text2.setText(getText(R.string.tap));
+		else text2.setText(getText(R.string.tap) + "\n");
         hasColor = false;
         text2.setOnClickListener(new OnClickListener() {
 			@Override
@@ -89,7 +89,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
 			public void onClick(View v) {
 				if (hasColor) {
 					ColorViewDialog dialog = new ColorViewDialog();
-					dialog.setColor(currentColor, "You picked " + currentColor);
+					dialog.setColor(currentColor, getText(R.string.you_picked) + " " + currentColor);
 					dialog.show(getSupportFragmentManager(), "color_view");
 				}
 			}  	
@@ -117,7 +117,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
 		String colString = cdata.ColorToString(colBits);
 		currentColor = colString;
 		//set the text & color backgrounds
-		text1.setText("You picked " + colString);
+		text1.setText(getText(R.string.you_picked) + " " + colString);
 		text1.setBackgroundColor(col);
 		String colclose = cdata.closestColor(colString);
 		currentNamedColor = colclose;
@@ -211,8 +211,8 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
     		SeekBar seek = (SeekBar) findViewById(R.id.seekBar1);
     		seek.setProgress(Color.blue(col));
     	} else {
-    		text1.setText("that's not a color!");
-    		text2.setText("(don't be silly)");
+    		text1.setText(getText(R.string.not_a_color));
+    		text2.setText(getText(R.string.dont_be_silly));
     		hasColor=false;
     		colorPicker.noColor();
     		colorPicker.invalidate();
@@ -276,7 +276,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
     		String name = cdata.getColorName(currentNamedColor);
     		sharer.Share(bitmap, name, currentNamedColor);
     	} else {
-    		Toast toast = Toast.makeText(this, "Can't share - no color chosen", Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, getText(R.string.cant_share), Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
     	}
@@ -290,14 +290,14 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
     		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
     		try {
 				wm.setBitmap(bitmap);
-	    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+	    		Toast toast = Toast.makeText(this, getText(R.string.wallpaper_set), Toast.LENGTH_SHORT);
 	    		toast.setGravity(Gravity.CENTER, 0, 0);
 	    		toast.show();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
     	} else {
-    		Toast toast = Toast.makeText(this, "Can't set wallpaper - no color chosen", Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, getText(R.string.cant_set), Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
     	}
@@ -309,7 +309,7 @@ public class MainActivity extends MenuActivity implements OnTouchListener, OnSee
 		WallpaperManager wm = WallpaperManager.getInstance(this.getApplicationContext());
 		try {
 			wm.setBitmap(bitmap);
-    		Toast toast = Toast.makeText(this, "Wallpaper set", Toast.LENGTH_SHORT);
+    		Toast toast = Toast.makeText(this, getText(R.string.wallpaper_set), Toast.LENGTH_SHORT);
     		toast.setGravity(Gravity.CENTER, 0, 0);
     		toast.show();
 		} catch (IOException e) {
