@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Color Namer</string>
+    <string name="title_activity_main">Color Chooser</string>
+    <string name="menu_settings">Nastavení</string>
+    <string name="menu_wallpaper">Nastavit barvu jako tapetu</string>
+    <string name="menu_info">Více informací</string>
+    <string name="menu_help">Nápověda</string>
+    <string name="menu_chooser">Chooser</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_info">Více informací</string>
+    <string name="menu_camera">Kamera</string>
+    <string name="info_text">Color Namer gives names to colors, letting you explore the named colorspace.  Names are based on the results of the <a href="http://blog.xkcd.com/2010/05/03/color-survey-results/">XKCD color survey</a>.  The most similar color from the survey results is displayed next to the color you picked.\n\n        
+        Color names were calculated from survey data by Randall Monroe, who writes the webcomic <a href="http://www.xkcd.com">XKCD</a>.  He writes on his blog:\n\n
+        \"The RGB value for a name is based on the location in the RGB color space where there was the highest frequency of responses choosing that name.  This was tricky to calculate.  I tried simple geometric means (conceptually flawed), a brute force survey of all potential center points (too slow), and fitting kernel density functions (math is hard). In the end, I used the average of a bunch of runs of a stochastic hillclimbing algorithm.  For mostly boring notes on my data handling for this list, see the comments at the bottom of the xkcd.com/color/rgb page.\"\n\n
+		\n\n<b>About this app</b>
+        \nVersion 2.32, January 2014          
+	    \nThis app was developed by Katie Dektar (<a href="http://www.dektar.com">dektar.com</a>). Please give me feedback <a href="market://details?id=com.color.colornamer">in the app store</a>, or email me directly at <a href="mailto:katie.dektar@gmail.com">katie.dektar@gmail.com</a>
+		\nColor Namer is free and open-source on github at <a href="http://github.com/kaytdek/ColorNamer">github.com/kaytdek/ColorNamer</a>.
+		\nThis app is released under <a href="https://www.gnu.org/copyleft/gpl-3.0.html">GNU GPLv3 license</a>.
+		\nThanks to CheatCoder@github for adding the flash code.
+	    \nThe color name data was taken from the <a href="http://www.xkcd.com">xkcd</a> color survey.
+	</string>
+    <string name="help_text"><b>Color Namer 2.32</b>
+        \nColor Namer can be used to name colors using the camera, browse colors by hue, search for colors by name, or look up specific colors by hex value.
+        \n\n<b>Naming Colors</b>
+        \n<b>1.</b> Use the camera option to determine colors in your environment!  You can tap different spots on the screen for the color at that point, as well as pause the camera to look at one frame more closely.  A share option is also available so that your friends can see too!  
+        \n\n<b>2.</b> In the Color Chooser, tap the color picker at the color of your choice.  To show more colors, pinch your fingers across the color picker or move the slider to add or subtract the color blue.  All colors in the rainbow can be created in this manner.
+        \n\n<b>3.</b> Submit a specific hex color by clicking the <i>Enter Hex</i> button.  This is a color of the form \'#xxxxxx\' or \'xxxxxx\' where \'x\' is a digit or a letter between a and f, inclusive, e.g. \'#ac03ee\'
+        \n\n<b>4.</b> Find a random color using the <i>Random</i> button.
+        \n\n<b>Searching Colors</b>
+        \nExploring the set of color names from the XKCD color survey can be pretty fun.  Try searching for common colors like <b>blue</b> or <b>red</b>, or adjectives like <b>bright</b> - or explore less common trends.  We recommend:
+        \n<b>berry</b>, <b>sea</b>, <b>dirty</b> and <b>dusty</b>, <b>ugly</b>, <b>poo</b> and <b>ish</b>.
+        \n\n<b>Sharing Colors</b>
+        \nYou can share colors with friends - sending a swatch of the color as well as the color name.  From the camera, sharing sends a screenshot too.
+	</string>
+    <string name="title_activity_help">Nápověda</string>
+    <string name="menu_search">Search</string>
+    <string name="title_activity_search">Search</string>
+    <string name="edit_search">vyhledat barvu</string>
+    <string name="button_search">Hledat</string>
+    <string name="empty_result_string">No matching colors found!</string>
+    <string name="color_picker_slider_text">Use the slider or pinch the color picker to add or subtract blue for all possible hex colors.</string>
+    <string name="color_picker_slider_text_short">Use the slider to add or subtract blue, creating all possible hex colors.</string>
+    <string name="button_random">Náhodná</string>
+	<string name="button_hex">Enter Hex</string>
+    <string name="cancel_hex">Cancel</string>
+    <string name="cancel_color">Zavřít</string>
+    <string name="wallpaper_color">Nastavit barvu jako tapetu</string>
+    <string name="enter_hex">Potvrdit</string>
+    <string name="message_hex">např. #32fdcc nebo f8901e</string>
+    <string name="title_hex">Zadat hexadecimální kód</string>
+    <string name="share_title">Share the named color to:</string>
+    <string name="menu_share">Sdílet</string>
+    <string name="menu_flash">Zapnout/vypnout svítilnu</string>
+    <string name="camera_resume"> resume</string>
+    <string name="camera_pause">  pause</string>
+    <string name="wallpaper_set">Wallpaper set</string>
+    <string name="you_chose">Vybrali jste</string>
+    <string name="tap">Tap a color!</string>
+    <string name="you_picked">You picked</string>
+    <string name="not_a_color">toto není barva!</string>
+    <string name="dont_be_silly">(nebuďte hloupý)</string>
+    <string name="cant_share">Nelze sdílet - nebyla vybrána žádná barva</string>
+    <string name="cant_set">Nelze nastavit tapetu - nebyla vybrána žádná barva</string>
+    
+</resources>
