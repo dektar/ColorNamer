@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Color Namer</string>
+    <string name="title_activity_main">Výběr barvy</string>
+    <string name="menu_settings">Nastavení</string>
+    <string name="menu_wallpaper">Nastavit barvu jako tapetu</string>
+    <string name="menu_info">Více informací</string>
+    <string name="menu_help">Nápověda</string>
+    <string name="menu_chooser">Výběr barvy</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_info">Více informací</string>
+    <string name="menu_camera">Fotoaparát</string>
+    <string name="info_text">Color Namer gives names to colors, letting you explore the named colorspace.  Names are based on the results of the <a href="http://blog.xkcd.com/2010/05/03/color-survey-results/">XKCD color survey</a>.  The most similar color from the survey results is displayed next to the color you picked.\n\n        
+        Color names were calculated from survey data by Randall Monroe, who writes the webcomic <a href="http://www.xkcd.com">XKCD</a>.  He writes on his blog:\n\n
+        \"The RGB value for a name is based on the location in the RGB color space where there was the highest frequency of responses choosing that name.  This was tricky to calculate.  I tried simple geometric means (conceptually flawed), a brute force survey of all potential center points (too slow), and fitting kernel density functions (math is hard). In the end, I used the average of a bunch of runs of a stochastic hillclimbing algorithm.  For mostly boring notes on my data handling for this list, see the comments at the bottom of the xkcd.com/color/rgb page.\"\n\n
+		\n\n<b>About this app</b>
+        \nVersion 2.32, January 2014          
+	    \nThis app was developed by Katie Dektar (<a href="http://www.dektar.com">dektar.com</a>). Please give me feedback <a href="market://details?id=com.color.colornamer">in the app store</a>, or email me directly at <a href="mailto:katie.dektar@gmail.com">katie.dektar@gmail.com</a>
+		\nColor Namer is free and open-source on github at <a href="http://github.com/kaytdek/ColorNamer">github.com/kaytdek/ColorNamer</a>.
+		\nThis app is released under <a href="https://www.gnu.org/copyleft/gpl-3.0.html">GNU GPLv3 license</a>.
+		\nThanks to CheatCoder@github for adding the flash code.
+	    \nThe color name data was taken from the <a href="http://www.xkcd.com">xkcd</a> color survey.
+	</string>
+    <string name="help_text"><b>Color Namer 2.32</b>
+        \nColor Namer může být použit pro pojmenovávání barev s použitím fotoaparátu, prohlížení barev podle odstínu, vyhledávání barev podle jména, nebo vyhledání specifické barvy podle jejího hexadecimálního kódu.
+        \n\n<b>Pojmenovávání barev</b>
+        \n<b>1.</b> Použijte fotoaparát pro určení jmen barev ve Vašem okolí!  Můžete se dotknout různých míst na obrazovce pro zaměření se na barvu v daném bodě, stejně jako pozastavit kameru a podívat se na jeden snímek podrobněji.  Možnost sdílení je také dostupná, takže toto všechno můžete sdílet i se svými přáteli!  
+        \n\n<b>2.</b> V sekci výběru barev se dotkněte barvy podle Vašeho výběru.  Pro ukázání více barev, jeďte prstem přes barevnou paletu nebo posuňte posuvník pro přidání nebo odebrání modré složky barvy.  Tímto způsobem je možné vytvořit všechny barvy duhy.
+        \n\n<b>3.</b> Můžete rovněž zadar specifický hexadecimální kód barvy kliknutím na tlačitko <i>Zadat kód</i>.  Kód barvy se zadává ve tvaru \'#xxxxxx\' nebo \'xxxxxx\' kde \'x\' je číslice nebo písmeno mezi <i>a</i> a <i>f</i> včetně, např. \'#ac03ee\'
+        \n\n<b>4.</b> Můžete najít náhodnou barvu kliknutím na tlačítko <i>Náhodná</i>.
+        \n\n<b>Vyhledávání barev</b>
+        \nObjevování názvů barev z XKCD průzkumu (zatím pouze v angličtině) může být docela zábavné.  Vyzkoušejte vyhledat běžné barvy jako <b>blue</b> nebo <b>red</b>, nebo přívlastky jako <b>bright</b> - nebo objevte méně známé barvy.  Doporučujeme:
+        \n<b>berry</b>, <b>sea</b>, <b>dirty</b> a <b>dusty</b>, <b>ugly</b>, <b>poo</b> a <b>ish</b>.
+        \n\n<b>Sdílení barev</b>
+        \nMůžete sdílet barvy se svými přáteli - poslat vzorek barvy stejně jako její jméno.  Je možné sdílet s přáteli i snímky z foťáku.
+	</string>
+    <string name="title_activity_help">Nápověda</string>
+    <string name="menu_search">Vyhledat</string>
+    <string name="title_activity_search">Vyhledat</string>
+    <string name="edit_search">vyhledat barvu</string>
+    <string name="button_search">Hledat</string>
+    <string name="empty_result_string">Žádná barva nenalezena!</string>
+    <string name="color_picker_slider_text">Use the slider or pinch the color picker to add or subtract blue for all possible hex colors.</string>
+    <string name="color_picker_slider_text_short">Použijte posuvník pro přidání nebo odebrání modré a vytvoření všech možných barev.</string>
+    <string name="button_random">Náhodná</string>
+	<string name="button_hex">Zadat kód</string>
+    <string name="cancel_hex">Zrušit</string>
+    <string name="cancel_color">Zavřít</string>
+    <string name="wallpaper_color">Nastavit barvu jako tapetu</string>
+    <string name="enter_hex">Potvrdit</string>
+    <string name="message_hex">např. #32fdcc nebo f8901e</string>
+    <string name="title_hex">Zadat hexadecimální kód</string>
+    <string name="share_title">Sdílet pojmenovanou barvu přes:</string>
+    <string name="menu_share">Sdílet</string>
+    <string name="menu_flash">Zapnout/vypnout svítilnu</string>
+    <string name="camera_resume"> obnovit</string>
+    <string name="camera_pause">  pozastavit</string>
+    <string name="wallpaper_set">Tapeta nastavena</string>
+    <string name="you_chose">Vybrali jste</string>
+    <string name="tap">Dotkněte se barvy!</string>
+    <string name="you_picked">Vybrali jste</string>
+    <string name="not_a_color">toto není barva!</string>
+    <string name="dont_be_silly">(nebuďte hloupý)</string>
+    <string name="cant_share">Nelze sdílet - nebyla vybrána žádná barva</string>
+    <string name="cant_set">Nelze nastavit tapetu - nebyla vybrána žádná barva</string>
+    
+</resources>
