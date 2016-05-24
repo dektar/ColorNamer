@@ -1,1 +1,7 @@
+gen/
 bin/
+app/build
+build/
+.gradle
+.idea
+*~
