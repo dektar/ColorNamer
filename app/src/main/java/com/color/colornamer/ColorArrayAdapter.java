@@ -26,11 +26,12 @@ public class ColorArrayAdapter extends ArrayAdapter<String> {
 	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater inflater = (LayoutInflater) context.getSystemService(
+				Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.search_result, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.search_result_text);
 		textView.setText(values.get(position));
-		View colorView = (View) rowView.findViewById(R.id.search_result_color);
+		View colorView = rowView.findViewById(R.id.search_result_color);
 		colorView.setBackgroundColor(Color.parseColor(colors.get(position)));
 		TextView hexView = (TextView) rowView.findViewById(R.id.search_result_hex_text);
 		hexView.setText(colors.get(position));

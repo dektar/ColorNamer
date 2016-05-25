@@ -52,6 +52,8 @@
     <string name="message_hex">e.g. #32fdcc or f8901e</string>
     <string name="title_hex">Enter a hex color</string>
     <string name="share_title">Share the named color to:</string>
+    <string name="share_subject">Look at this cool color from Color Namer!</string>
+    <string name="share_body">I found this color named \"%1$s\" using Color Namer. The hex value is %2$s.\n\nColor Namer is available at play.google.com/store/apps/details?id=com.color.colornamer</string>
     <string name="menu_share">Share</string>
     <string name="menu_flash">Toggle Flash</string>
     <string name="camera_resume"> resume</string>

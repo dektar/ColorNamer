@@ -24,7 +24,7 @@ import android.view.SurfaceView;
 class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCallback { 
 	
 	public interface PreviewListener {
-		public void OnPreviewUpdated(int[] pixels, int width, int height);
+        void OnPreviewUpdated(int[] pixels, int width, int height);
 	}
 	
 	PreviewListener listener;
@@ -58,21 +58,20 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
             listener = (PreviewListener) context;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
-            throw new ClassCastException(context.toString()
-                    + " must implement PreviewListener");
+            throw new ClassCastException(context.toString() + " must implement PreviewListener");
         }
     }  
   
     public void surfaceCreated(SurfaceHolder holder) {  
-        // The Surface has been created, acquire the camera and tell it where  
-        // to draw.  
+        // The Surface has been created, acquire the camera and tell it where to draw.
         try {
         	CameraInfo info = new CameraInfo();
         	Camera.getCameraInfo(0, info);
         	if (info.facing == CameraInfo.CAMERA_FACING_FRONT) {
         		this.isFrontCamera = true;
         	}
-            mCamera = Camera.open(0); // attempt to get a Camera instance.  index b/c front cameras are ok too.
+            // attempt to get a Camera instance. Use the index b/c front cameras are ok too.
+            mCamera = Camera.open(0);
             
         }
         catch (Exception e){
@@ -95,14 +94,14 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
             if (!lightOn) {
                 lightOn = true;
                 mCamera.stopPreview();
-                mCamera.setPreviewCallbackWithBuffer(this); //setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);
+                mCamera.setPreviewCallbackWithBuffer(this);
                 parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
                 mCamera.setParameters(parameters);
                 mCamera.startPreview();
             } else {
                 lightOn = false;
                 mCamera.stopPreview();
-                mCamera.setPreviewCallbackWithBuffer(this); //setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);
+                mCamera.setPreviewCallbackWithBuffer(this);
                 parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
                 mCamera.setParameters(parameters);
                 mCamera.startPreview();
@@ -110,13 +109,16 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
         }
     }
     
-    // thanks http://ikravchenko.blogspot.com/2013/09/nexus-7-2013-torch-issue.html
+    // Thanks http://ikravchenko.blogspot.com/2013/09/nexus-7-2013-torch-issue.html
     public boolean supportsFlash() {
     	 if (getContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
              parameters = mCamera.getParameters();
              if (parameters.getFlashMode() != null) {
              	List<String> supportedFlashModes = parameters.getSupportedFlashModes();
-                 if (supportedFlashModes == null || supportedFlashModes.isEmpty() || supportedFlashModes.size() == 1 && supportedFlashModes.get(0).equals(Camera.Parameters.FLASH_MODE_OFF)) {
+                 if (supportedFlashModes == null || supportedFlashModes.isEmpty() ||
+                         supportedFlashModes.size() == 1 &&
+                                 supportedFlashModes.get(0).equals(
+                                         Camera.Parameters.FLASH_MODE_OFF)) {
                      return false;
                  }
                  return true;
@@ -132,7 +134,7 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
         // important to release it when the activity is paused.  
     	if (mCamera != null) {
 	        mCamera.stopPreview();  
-	        mCamera.setPreviewCallback(null);//setPreviewCallbackWithBuffer(null);
+	        mCamera.setPreviewCallback(null);
 	        mCamera.release();  
 	        mCamera = null;
     	}
@@ -170,21 +172,22 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
 	        // You need to choose the most appropriate previewSize for your app
 	        for (int i = 0; i < previewSizes.size(); i++) {
 	        	Size size = previewSizes.get(i);
-	        	if ((size.width <= width && size.height <= height) || (size.height <= width && size.width <= height))  {
-	                if (best==null) {
-	                    best=size;
+	        	if ((size.width <= width && size.height <= height) ||
+                        (size.height <= width && size.width <= height))  {
+	                if (best == null) {
+	                    best = size;
 	                } else {
-	                    int resultArea=best.width*best.height;
-	                    int newArea=size.width*size.height;
+	                    int resultArea = best.width * best.height;
+	                    int newArea = size.width * size.height;
 
-	                    if (newArea>resultArea) {
-	                        best=size;
+	                    if (newArea > resultArea) {
+	                        best = size;
 	                    }
 	               }
 	        	}
 	        }
 	        
-	        // make sure something is picked.  previewSizes is guarenteed to have at least one thing.
+	        // make sure something is picked. previewSizes is guaranteed to have at least one thing.
 	        if (best != null) {
 	        	previewSize = best; 
 	        } else {
@@ -196,8 +199,9 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
 	        mCamera.setParameters(parameters);
 	        
     	    //sets the camera callback to be the one defined in this class  
-            mCamera.setPreviewCallbackWithBuffer(this);//setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);  
-	        bufferSize = previewSize.width*previewSize.height*ImageFormat.getBitsPerPixel(parameters.getPreviewFormat())/8;
+            mCamera.setPreviewCallbackWithBuffer(this);
+	        bufferSize = previewSize.width*previewSize.height*ImageFormat.getBitsPerPixel(
+                    parameters.getPreviewFormat())/8;
 	        buffer = new byte[bufferSize];
 	    	resetBuffer();
 	        
@@ -214,7 +218,7 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
     		mCamera.stopPreview();
     	} else {
     		if (mCamera != null) {
-	    		mCamera.setPreviewCallbackWithBuffer(this);//setPreviewCallback(this);//setPreviewCallbackWithBuffer(this);
+	    		mCamera.setPreviewCallbackWithBuffer(this);
 
                 if(lightOn)
                     parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
@@ -244,29 +248,30 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback, PreviewCall
               
             final int frameSize = width * height;  
   
-            for (int j = 0, yp = 0; j < height; j++) {       int uvp = frameSize + (j >> 1) * width, u = 0, v = 0;  
-              for (int i = 0; i < width; i++, yp++) {  
-                int y = (0xff & ((int) yuv420sp[yp])) - 16;  
-                if (y < 0)  
-                  y = 0;  
-                if ((i & 1) == 0) {  
-                  v = (0xff & yuv420sp[uvp++]) - 128;  
-                  u = (0xff & yuv420sp[uvp++]) - 128;  
-                }  
-  
-                int y1192 = 1192 * y;  
-                int r = (y1192 + 1634 * v);  
-                int g = (y1192 - 833 * v - 400 * u);  
-                int b = (y1192 + 2066 * u);  
-  
-                if (r < 0)                  r = 0;               else if (r > 262143)  
-                   r = 262143;  
-                if (g < 0)                  g = 0;               else if (g > 262143)  
-                   g = 262143;  
-                if (b < 0)                  b = 0;               else if (b > 262143)  
-                   b = 262143;  
-  
-                rgb[yp] = 0xff000000 | ((r << 6) & 0xff0000) | ((g >> 2) & 0xff00) | ((b >> 10) & 0xff);  
+            for (int j = 0, yp = 0; j < height; j++) {
+                int uvp = frameSize + (j >> 1) * width, u = 0, v = 0;
+                for (int i = 0; i < width; i++, yp++) {
+                    int y = (0xff & ((int) yuv420sp[yp])) - 16;
+                    if (y < 0)
+                        y = 0;
+                    if ((i & 1) == 0) {
+                        v = (0xff & yuv420sp[uvp++]) - 128;
+                        u = (0xff & yuv420sp[uvp++]) - 128;
+                    }
+
+                    int y1192 = 1192 * y;
+                    int r = (y1192 + 1634 * v);
+                    int g = (y1192 - 833 * v - 400 * u);
+                    int b = (y1192 + 2066 * u);
+
+                    if (r < 0)                  r = 0;               else if (r > 262143)
+                        r = 262143;
+                    if (g < 0)                  g = 0;               else if (g > 262143)
+                        g = 262143;
+                    if (b < 0)                  b = 0;               else if (b > 262143)
+                        b = 262143;
+
+                    rgb[yp] = 0xff000000 | ((r << 6) & 0xff0000) | ((g >> 2) & 0xff00) | ((b >> 10) & 0xff);
               }  
          }  
     }  

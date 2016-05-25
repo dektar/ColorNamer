@@ -36,8 +36,9 @@ import android.widget.Toast;
  * 1.2: share colors, bug fix formatting for old devices
  * 1.1: instant search, full sized color, minor bug fixes with the keyboard, formatting for small devices
  */
-public class MainActivity extends MenuActivity implements OnTouchListener, OnSeekBarChangeListener, EnterColorDialog.EnterColorListener, 
-														  OnItemClickListener, ColorViewDialog.ColorViewDialogListener {
+public class MainActivity extends MenuActivity implements OnTouchListener, OnSeekBarChangeListener,
+		EnterColorDialog.EnterColorListener, OnItemClickListener,
+		ColorViewDialog.ColorViewDialogListener {
 	public final static String EXTRA_MESSAGE = "com.example.colorpicker.MESSAGE";
 	public final static String EXTRA_COLOR_ENTERED = "com.example.colorpicker.COLOR_ENTERED";
 	public final static String EXTRA_MESSAGE_RESULT = "com.example.colorpicker.MESSAGE_RESULT";

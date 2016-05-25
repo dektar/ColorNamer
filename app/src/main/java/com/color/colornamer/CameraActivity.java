@@ -30,7 +30,6 @@ import android.widget.Toast;
 //class to hold the camera preview & manage the layouts & callbacks associated with the camera fragment
 public class CameraActivity extends MenuActivity implements PreviewListener, OnTouchListener, ColorViewDialog.ColorViewDialogListener {
 	
-	private Menu menu;
 	private Preview mPreview;
 	private boolean isPaused = false; // whether or not the preview is paused
 	private TextView colorView1;
@@ -39,8 +38,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 	private ColorData cdata;
 	private int radius = 5;
 	private OutlineDrawableView centerView;
-	private boolean sharing = false;
-	
+
 	private int[] pausedPixels = null;
 	private int pausedWidth;
 	private int pausedHeight;
@@ -58,7 +56,8 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		// The camera activity is the main activity.  So, we need to default to the chooser activity if the camera doesn't exist.
+		// The camera activity is the main activity.  So, we need to default to the chooser activity
+		// if the camera doesn't exist.
 		if (!this.hasCamera || this.sdk < 9) {
 			Intent intent = new Intent(this, MainActivity.class);
 			startActivity(intent);
@@ -168,7 +167,6 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
         if (!mPreview.supportsFlash()) {
             menu.removeItem(R.id.menu_flash);
         }
-        this.menu = menu;
         return true;
     }
 
@@ -245,7 +243,6 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
 	@Override
 	// mPreview flips a boolean for the previewCallback
 	protected void share() {
-		sharing = true;
 		if (!isPaused) {
 			mPreview.pause(true);
 			//play the camera shutter sound
@@ -316,9 +313,7 @@ public class CameraActivity extends MenuActivity implements PreviewListener, OnT
         String name = cdata.getColorName(currentNamedColor);
         
         sharer.Share(bitmap, name, currentNamedColor);
-        
-    	sharing = false;
-    	if (!isPaused) mPreview.pause(isPaused);
+        if (!isPaused) mPreview.pause(isPaused);
 	}
 
 	@Override
