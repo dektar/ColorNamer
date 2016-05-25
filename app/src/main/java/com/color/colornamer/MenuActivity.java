@@ -26,7 +26,8 @@ public class MenuActivity extends FragmentActivity {
 		//for hiding the camera option for devices w/ no camera
 		//feature_camera_any is api level 17
 		PackageManager manager = getPackageManager();
-		if (manager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY) || manager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) hasCamera = true;
+		if (manager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY) ||
+				manager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) hasCamera = true;
 		
 		sharer = new Sharer(this);
 
@@ -35,9 +36,7 @@ public class MenuActivity extends FragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-
-    	//maybe someday support API level 8
-    	if (hasCamera && sdk >= 9) {
+        if (hasCamera && sdk >= 9) {
             getMenuInflater().inflate(R.menu.activity_main, menu);
     	} else {
     		getMenuInflater().inflate(R.menu.activity_main_nocamera, menu);
@@ -72,8 +71,8 @@ public class MenuActivity extends FragmentActivity {
             	if (fragLayout.getVisibility() != View.VISIBLE) {
             		menu.setGroupVisible(R.id.menu_group, false);
 	            	fragLayout.setVisibility(View.VISIBLE);
-	            	FragmentTransaction transaction = getSupportFragmentManager().beginTransaction().add(R.id.fragLayout, new SearchFragment());
-	            	//transaction.addToBackStack(null);
+	            	FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
+                            .add(R.id.fragLayout, new SearchFragment());
 	            	transaction.commit();
             	}
             	return true;

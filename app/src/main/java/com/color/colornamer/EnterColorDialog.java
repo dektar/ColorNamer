@@ -19,8 +19,8 @@ public class EnterColorDialog extends DialogFragment implements OnEditorActionLi
 	View view;
 	
 	public interface EnterColorListener {
-        public void onDialogPositiveClick(DialogFragment dialog, String text);
-        public void onDialogNegativeClick(DialogFragment dialog, String text);
+        void onDialogPositiveClick(DialogFragment dialog, String text);
+        void onDialogNegativeClick(DialogFragment dialog, String text);
 	}
 	
 	EnterColorListener listener;
@@ -53,13 +53,14 @@ public class EnterColorDialog extends DialogFragment implements OnEditorActionLi
         builder.setView(view);
         builder.setPositiveButton(R.string.enter_hex, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                	   String text = ((EditText) view.findViewById(R.id.edit_message)).getText().toString();
+                	   String text = ((EditText) view.findViewById(R.id.edit_message))
+                               .getText().toString();
                 	   listener.onDialogPositiveClick(EnterColorDialog.this, text);
                    }
                })
                .setNegativeButton(R.string.cancel_hex, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                	   //minimize the keyboard too
+                	   // Minimize the keyboard too
                        dialog.cancel();
                    }
                }).setTitle(R.string.title_hex);
@@ -67,7 +68,7 @@ public class EnterColorDialog extends DialogFragment implements OnEditorActionLi
         return builder.create();
     }
 
-	// for the editText - trying to get the enter button to submit the dialog
+	// For the editText - trying to get the enter button to submit the dialog
 	@Override
 	public boolean onEditorAction(TextView view, int action, KeyEvent event) {
 		if (EditorInfo.IME_ACTION_DONE == action) {

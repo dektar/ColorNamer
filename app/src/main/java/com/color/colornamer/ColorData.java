@@ -13,26 +13,23 @@ import android.content.Context;
 
 public class ColorData {
 	
-	// contains full hex color -> name map
-	static Map<String,String> nameMap;
+	// Contains full hex color -> name map
+	protected Map<String,String> nameMap;
 		
-	// colors as lists of int
+	// Colors as lists of int
 	public ArrayList<int[]> colors;
 	
 	public ColorData(Context context) {
 		loadColors(context);
 	}
 	
-	//load the colors from a text file to the HashMap
+	// Load the colors from a text file to the HashMap
     private void loadColors(Context context) {
     	nameMap = new HashMap<String,String>();
     	colors = new ArrayList<int[]>();
     	try {
-        	BufferedReader reader = null;
-        	//FileInputStream inputStream = openFileInput(COLOR_FILE);
         	InputStream inputStream = context.getResources().openRawResource(R.raw.rgb);
-        	
-			reader = new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 			String line = reader.readLine();
 	    	while (line != null) {
 	    		int split = line.indexOf('#');
@@ -49,7 +46,7 @@ public class ColorData {
 		}
     }
     
-    // sanity check to make sure the color entered is valid
+    // Sanity check to make sure the color entered is valid
     public boolean isValidColor(String str) {
     	if (str.matches("#([a-f0-9])*") && str.length() == 7) {
     		return true;
@@ -57,7 +54,7 @@ public class ColorData {
     	return false;
     }
     
- // converts a hex string to a int[3] representing the color, for searches
+    // Converts a hex string to a int[3] representing the color, for searches
     private int[] StringToColor(String str) { 
     	int[] result = new int[3];
     	for (int i = 1; i < str.length(); i+=2) {
@@ -68,7 +65,7 @@ public class ColorData {
     	return result;
     }
     
-    // converts a int[3] to a string hex color
+    // Converts a int[3] to a string hex color
     public String ColorToString(int[] color) {
     	String result = "#";
     	for (int i = 0; i < color.length; i++) {
@@ -81,9 +78,11 @@ public class ColorData {
     	return result;
     }
 
-    // returns true if the color is dark.  useful for picking a font color.
+    // Returns true if the color is dark.  useful for picking a font color.
     public boolean isDarkColor(int[] color) {
-    	if (color[0]*.3 + color[1]*.59 + color[2]*.11 > 150) return false;
+    	if (color[0] * .3 + color[1] * .59 + color[2] * .11 > 150) {
+			return false;
+		}
     	return true;
     }
     
@@ -91,10 +90,8 @@ public class ColorData {
     	return nameMap.get(color);
     }
     
-    // takes a valid color string and finds the closest color from XKCD's survey results
-    // e.g. "#000000"
+    // Takes a valid color string and finds the closest color from XKCD's survey results
     public String closestColor(String col) {
-    	String result = null;
     	int[] input = StringToColor(col);
     	int[] bestMatch = new int[3];
     	double bestDist = 1000;
@@ -106,15 +103,13 @@ public class ColorData {
     			bestDist = dist;
     		}
     	}
-    	result = ColorToString(bestMatch);
-    	return result;
+    	return ColorToString(bestMatch);
     }
     
     public String closestColor(int[] col) {
-    	String result = null;
     	int[] bestMatch = new int[3];
     	double bestDist = 1000;
-    	// calculate distances to each of the colors in colors
+    	// Calculate distances to each of the colors in colors
     	for (int i = 0; i < colors.size(); i++) {
     		double dist = calculateDist(col, colors.get(i));
     		if (dist < bestDist) {
@@ -122,11 +117,10 @@ public class ColorData {
     			bestDist = dist;
     		}
     	}
-    	result = ColorToString(bestMatch);
-    	return result;
+    	return ColorToString(bestMatch);
     }
     
-    // calculates the distance between two points
+    // Calculates the distance between two points
     // Distance = SquareRoot(xd*xd + yd*yd + zd*zd)
     private double calculateDist(int[] p1,int[] p2) {
     	int sum = 0;
