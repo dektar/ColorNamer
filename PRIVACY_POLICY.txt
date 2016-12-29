@@ -1,0 +1,12 @@
+PRIVACY POLICY
+2016
+
+ColorNamer uses the camera on the device for live preview, but does not share or upload 
+images gathered by the camera in any way.
+
+SimplyMoustache uses the camera on the device and stores captured images
+on that same device, and only shares images if the user explicitly requests it, with
+the apps that the user explicitly suggests.
+
+For both apps, information from the camera is never collected or used by the app
+creator. If that changes, this privacy policy will be updated.
