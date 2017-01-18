@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Color Namer</string>
+    <string name="title_activity_main">Seletor de cores</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_wallpaper">Usar cor como papel de parede</string>
+    <string name="menu_info">Mais Informações</string>
+    <string name="menu_help">Ajuda</string>
+    <string name="menu_chooser">Seletor</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_info">Mais informação</string>
+    <string name="menu_camera">Câmera</string>
+    <string name="info_text">Color Namer dá nome às cores, deixando você explorar o espaço de cores com nomes. Os nomes são baseados no resultado da <a href="http://blog.xkcd.com/2010/05/03/color-survey-results/">pesquisa de cores do XKCD</a>. A cor mais parecida dos resultados da pesquisa é exibida próxima à cor que você escolheu.\n\n        
+        Os nomes das cores foram calculados dos dados da pesquisa por Randall Monroe, quem escreve o webcomic <a href="http://www.xkcd.com">XKCD</a>. Ele escreve em seu blog:\n\n
+        \"O valor RGB para um nome é baseado na localização no espaço de cores RGB onde estava a frequência mais alta de respostas escolhendo aquele nome.  Isso foi complicado de calcular.  Eu tentei médias geométricas simples (conceitualmente falhas), uma pesquisa de força bruta de todos os pontos centrais em potencial (muiti lento), e encaixando funções de densidade de kernel (matemática é difícil). No fim, eu usei a média de um grupo de execuções de um algorítmo de subidas estocásticas. Para a maioria das notas tediosas no meu manipulamento de dados para essa lista, veja os comentários na parte inferior da página xkcd.com/color/rgb .\"\n\n
+		\n\n<b>Sobre este aplicativo</b>
+        \nVersão 2.32, Janeiro de 2014          
+	    \nEste aplicativo foi desenvolvido por Katie Dektar (<a href="http://www.dektar.com">dektar.com</a>). Por favor, me dê retorno <a href="market://details?id=com.color.colornamer">na loja de aplicativos</a>, ou envie um e-mail diretamente a <a href="mailto:katie.dektar@gmail.com">katie.dektar@gmail.com</a>
+		\nColor Namer é livre e de fonte aberta no github em <a href="http://github.com/kaytdek/ColorNamer">github.com/kaytdek/ColorNamer</a>.
+		\nEste aplicativo está lançado sob a <a href="https://www.gnu.org/copyleft/gpl-3.0.html">licença GNU GPLv3</a>.
+		\nObrigado a CheatCoder@github por adicionar o código flash.
+	    \nOs dados de nome das cores foram tirados da pesquisa de cores do <a href="http://www.xkcd.com">xkcd</a>.
+	</string>
+    <string name="help_text"><b>Color Namer 2.32</b>
+        \nColor Namer pode ser utilizado para nomear cores, usando a câmera, pesquisar cores por tonalidade, por nome, ou procurar cores específicas por valor hexadecimal.
+        \n\n<b>Nomear Cores</b>
+        \n<b>1.</b> Use a opção câmera para determinar cores em seu ambiente!  Você pode tocar em diferentes locais na tela para a cor naquele ponto, bem como pausar a câmera para olhar para um quadro mais de perto.  Uma opção de compartilhamento também está disponível, deste modo seus amigos também podem ver!  
+        \n\n<b>2.</b> No Seletor de Cores, toque no seletor, na cor de sua escolha.  Para exibir mais cores, prenda seus dedos através do seletor de cores ou mova o cursor para adicionar ou subtrair a cor azul. Todas as cores no arco-íris podem ser criadas desta maneira.
+        \n\n<b>3.</b> Envie uma cor hexadecimal específica ao clicar no botão <i>Entre com o Hexadecimal</i>.  Essa é uma cor da forma \'#xxxxxx\' ou \'xxxxxx\' onde \'x\' é um dígito ou uma letra entre a e f, inclusive, ex: \'#ac03ee\'
+        \n\n<b>4.</b> Encontre uma cor aleatória usando o botão <i>Aleatória</i>.
+        \n\n<b>Procurando Cores</b>
+        \nExplorar o conjunto de nomes de cor da pesquisa de cores do XKCD pode ser muito divertido.  Tenten procurar por cores comuns como <b>azul</b> ou <b>vermelho</b>, ou adjetivos como <b>brilhante</b> - ou explore tendências menos comuns.  Nós recomendamos:
+        \n<b>baga</b>, <b>mar</b>, <b>sujo</b> e <b>empoeirado</b>, <b>feio</b> e <b>cocô</b>.
+        \n\n<b>Compartilhando cores</b>
+        \nVocê pode compartilhar cores com amigos - enviando uma amostra da cor, bem como seu nome.  Da câmera, Compartilhar envia uma captura de tela também.
+	</string>
+    <string name="title_activity_help">Ajuda</string>
+    <string name="menu_search">Procurar</string>
+    <string name="title_activity_search">Busca</string>
+    <string name="edit_search">procurar cores</string>
+    <string name="button_search">Procurar</string>
+    <string name="empty_result_string">Nenhuma cor correspondente encontrada!</string>
+    <string name="color_picker_slider_text">Use the slider or pinch the color picker to add or subtract blue for all possible hex colors.</string>
+    <string name="color_picker_slider_text_short">Use the slider to add or subtract blue, creating all possible hex colors.</string>
+    <string name="button_random">Aleatória</string>
+	<string name="button_hex">Entre com o Hexadecimal</string>
+    <string name="cancel_hex">Cancelar</string>
+    <string name="cancel_color">Fechar</string>
+    <string name="wallpaper_color">Usar cor como papel de parede</string>
+    <string name="enter_hex">Enviar</string>
+    <string name="message_hex">ex: #32fdcc ou f8901e</string>
+    <string name="title_hex">Entre com uma cor hexadecimal</string>
+    <string name="share_title">Compartilhar a cor nomeada com:</string>
+    <string name="share_subject">Olhe para essa cor legal do Color Namer!</string>
+    <string name="share_body">Eu encontrei essa cor chamada \"%1$s\" usando Color Namer. O valor hexadecimal é %2$s.\n\nColor Namer está disponível em play.google.com/store/apps/details?id=com.color.colornamer</string>
+    <string name="menu_share">Compartilhar</string>
+    <string name="menu_flash">Alternar Flash</string>
+    <string name="camera_resume"> reiniciar</string>
+    <string name="camera_pause">  pausar</string>
+    <string name="wallpaper_set">Ajustar papel de parede</string>
+    <string name="you_chose">Você escolhe</string>
+    <string name="tap">Toque em uma cor!</string>
+    <string name="you_picked">Você escolheu</string>
+    <string name="not_a_color">isso não é uma cor!</string>
+    <string name="dont_be_silly">(não seja bobo)</string>
+    <string name="cant_share">Não posso compartilhar - nenhuma cor escolhida</string>
+    <string name="cant_set">Não posso ajustar o papel de parede - nenhuma cor escolhida</string>
+    
+</resources>
